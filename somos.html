@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Somos Alimentae | Rescatamos alimentos, cambiamos vidas</title>
+  <meta name="description" content="Conoce más sobre Alimentae: nuestra historia, valores y cómo transformamos excedentes en esperanza para familias de Lima." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --blue: #040f6e;
+      --yellow: #fad02c;
+      --white: #ffffff;
+      --black: #000000;
+      --bg: #f7f7fb;
+      --text: #1f2430;
+      --muted: #6b7280;
+      --font-head: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { 
+      scroll-behavior: smooth; 
+      scroll-padding-top: 90px;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .page-shell {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff 0%, #f7f7fb 100%);
+    }
+
+    /* BARRA DE NAVEGACIÓN (TOPBAR) */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 5vw;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(4, 15, 110, 0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: var(--font-head);
+      font-weight: 900;
+      color: var(--blue);
+      font-size: 1.4rem;
+      letter-spacing: -0.5px;
+    }
+
+    .brand img {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;     
+      width: 60px;
+      height: 60px;
+      transform: scale(1.5);
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none;
+      align-items: center;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--blue);
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    /* BOTÓN HAMBURGUESA PARA MÓVIL */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 110;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background-color: var(--blue);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.55rem 1.3rem;
+      border-radius: 50px;
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--blue);
+      box-shadow: 0 10px 24px rgba(250, 208, 44, 0.25);
+    }
+    .btn-secondary {
+      border: 1px solid rgba(4, 15, 110, 0.15);
+      color: var(--blue);
+      background: rgba(255,255,255,0.8);
+    }
+
+    .hero {
+      padding: 5rem 5vw 4rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(4, 15, 110, 0.08);
+      color: var(--blue);
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-head);
+      color: var(--blue);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3.3rem);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero p { font-size: 1.05rem; color: var(--text); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.6rem; }
+
+    .hero-card {
+      background: linear-gradient(145deg, var(--blue), #0c1c98);
+      color: var(--white);
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: 0 26px 70px rgba(4, 15, 110, 0.18);
+    }
+
+    .hero-card h3 {
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.7rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 5vw 4rem;
+    }
+
+    .section-grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #mision-y-vision h3 { color: var(--yellow); }
+    .card {
+      background: var(--blue);
+      border: 1px solid rgba(4, 15, 110, 0.08);
+      border-radius: 22px;
+      padding: 1.6rem;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h3 { margin-bottom: 0.6rem; font-size: 1.15rem; }
+    .card p, .card li { color: var(--white); }
+    .card ul { padding-left: 1rem; display: grid; gap: 0.45rem; }
+
+    .values-grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .value-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.4rem;
+      border: 1px solid rgba(4, 15, 110, 0.08);
+      text-align: justify;
+    }
+
+    .value-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+      color: var(--yellow);
+      font-family: var(--font-head);
+      font-weight: 900;
+    }
+
+    .quote {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 2rem;
+      border: 1px solid rgba(4, 15, 110, 0.08);
+      text-align: center;
+      margin: 1.5rem auto 0;
+    }
+
+    .quote p {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--text);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .somos-section {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      color: #000000;
+    }
+    .somos-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .somos-header h2 {
+      color: #040f6e;
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+    .somos-header p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #000000;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .team-member-card {
+      background-color: #fad02c;
+      border-radius: 12px;
+      padding: 25px 15px;
+      text-align: center;
+      box-shadow: 0 4px 6px #fad12c8f;
+      transition: transform 0.3s ease;
+    }
+    .team-member-card:hover {
+      transform: translateY(-5px);
+    }
+    .team-member-card h4 {
+      color: #040f6e;
+      margin: 10px 0 5px 0;
+      font-size: 1.2em;
+      font-weight: 700;
+    }
+    .team-member-card p {
+      margin: 0;
+      color: #333;
+      font-size: 0.95em;
+      font-weight: 500;
+    }
+
+    footer {
+      background: var(--black);
+      padding: 2.5rem 5vw 3rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* RESPONSIVE & ADAPTACIÓN MÓVIL */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .section-grid, .values-grid { grid-template-columns: 1fr 1fr; }
+      
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 75px;
+        right: -100%;
+        width: 100%;
+        max-width: 320px;
+        height: calc(100vh - 75px);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2.5rem 2rem;
+        gap: 1.8rem;
+        box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      /* Animación a X en menú de hamburguesa */
+      .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section-grid, .values-grid { grid-template-columns: 1fr; }
+      .topbar { padding: 0.8rem 1.2rem; }
+      .hero, .section { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <img src="alimentae_alterno.png" alt="Logo de Alimentae" />
+        <span:>Alimentae</span>
+      </a>
+
+      <!-- Botón para Abrir/Cerrar Menú en Celular -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav aria-label="Navegación secundaria">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="#nuestra-historia">Historia</a></li>
+          <li><a href="#mision-y-vision">M&V</a></li>
+          <li><a href="index.html#accion" class="btn btn-primary">Sé parte del cambio</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Somos Alimentae</p>
+          <h2>Nadie debería pasar hambre. Nada debería desperdiciarse.</h2>
+          <p>
+            Nacimos para responder a una contradicción que no podemos seguir ignorando: hay comida en exceso y, al mismo tiempo, familias que pasan hambre. En Alimentae convertimos ese excedente en esperanza.
+          </p>
+          <div class="hero-actions">
+            <a href="#mision-y-vision" class="btn btn-primary">Misión y Visión</a>
+            <a href="index.html" class="btn btn-secondary">Volver al inicio</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Lo que hacemos hoy</h3>
+          <ul>
+            <li>Rescatamos alimentos aptos para consumo.</li>
+            <li>Los redistribuimos a familias y comunidades vulnerables.</li>
+            <li>Trabajamos con aliados locales para actuar rápido.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="nuestra-historia" class="somos-section">
+        <div class="somos-header">
+          <h2>Nuestra Historia</h2>
+          <p>
+            En <strong>Alimentae</strong>, creemos firmemente que la comida no debe ser un privilegio, sino un derecho. Nacimos en las aulas del <strong>Colegio Peruano Británico</strong>, impulsadas por nuestro proyecto CAS. Ante la alarmante realidad de que en el Perú se desperdician millones de toneladas de alimentos mientras miles pasan hambre, decidimos actuar. Nos unió un propósito claro: ser el puente entre la abundancia y la necesidad.
+          </p>
+        </div>
+        
+        <div class="team-container">
+          <h3 style="text-align: center; color: #002060;">El Equipo Detrás del Cambio</h3>
+          <div class="team-grid">
+            
+            <div class="team-member-card">
+              <h4>Doménica S.</h4>
+              <p>Coordinadora General Ejecutiva</p>
+            </div>
+            
+            <div class="team-member-card">
+              <h4>Alessia L.</h4>
+              <p>Coordinadora de<br>Operaciones</p>
+            </div>
+            
+            <div class="team-member-card">
+              <h4>Micaela V.</h4>
+              <p>Coordinadora de<br>Comunicación</p>
+            </div>
+            
+            <div class="team-member-card">
+              <h4>Amelia T.</h4>
+              <p>Coordinadora de<br>Alianzas</p>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Lo que nos mueve</h2>
+        <div class="values-grid">
+          <article class="value-card">
+            <div class="icon">01</div>
+            <h3>Rescate</h3>
+            <p>Recuperamos alimentos que todavía tienen valor y los sacamos del desperdicio.</p>
+          </article>
+          <article class="value-card">
+            <div class="icon">02</div>
+            <h3>Comunidad</h3>
+            <p>Trabajamos junto a vecinos, ollas comunes y comercios como mercados y restaurantes.</p>
+          </article>
+          <article class="value-card">
+            <div class="icon">03</div>
+            <h3>Transparencia</h3>
+            <p>Queremos que cada colaboración sea visible, clara y útil para quien la recibe.</p>
+          </article>
+          <article class="value-card">
+            <div class="icon">04</div>
+            <h3>Acción</h3>
+            <p>Actuamos con velocidad, porque la comida que se pierde hoy no vuelve mañana.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="mision-y-vision">
+        <h2>Misión y Visión</h2>
+        <div class="section-grid">
+          <article class="card">
+            <h3>Nuestra Misión</h3>
+            <p>Rescatar alimentos aptos para consumo y redistribuirlos a familias y comunidades vulnerables, promoviendo la justicia alimentaria y la solidaridad.</p>
+          </article>
+          <article class="card">
+            <h3>Nuestra Visión</h3>
+            <p>Crear un mundo donde no haya hambre y todos tengan acceso a alimentos nutritivos y dignos.</p>
+          </article>
+        </div>
+
+        <div class="quote">
+          <p>
+            “Cuando transformamos el excedente en alimento, también transformamos la forma en que cuidamos a nuestra comunidad. Alimentae no es solo una iniciativa: es una decisión de actuar con corazón.”
+          </p>
+        </div>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="index.html#accion" class="btn btn-primary">Quiero participar</a>
+          <a href="index.html" class="btn btn-secondary">Volver a la portada</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 <span style="color: var(--yellow)">Alimentae</span> · Rescatamos alimentos, cambiamos vidas.
+    </footer>
+  </div>
+
+  <!-- SCRIPT PARA INTERACCIÓN DEL MENÚ EN CELULARES -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Cierra el menú al presionar cualquier enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
