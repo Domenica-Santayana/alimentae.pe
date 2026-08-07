@@ -1,10 +1,10 @@
-# Alimentae Website 🌱
+# Alimentae Website 
 
-A modern, responsive website for **Alimentae**, a youth-led social initiative dedicated to reducing food waste by rescuing surplus food and redistributing it to vulnerable communities in Lima, Peru.
+Alimentae is an interactive and responsive demo website for my food rescue initiative alongside my friends. A modern, responsive website for **Alimentae**, a youth-led social initiative dedicated to reducing food waste by rescuing surplus food and redistributing it to vulnerable communities in Lima, Peru. 
 
 The website aims to raise awareness about food insecurity, explain Alimentae's mission, and encourage visitors to become part of the movement.
 
-## 📖 About the Project
+## About the Project
 
 Alimentae was created to address a simple contradiction:
 
