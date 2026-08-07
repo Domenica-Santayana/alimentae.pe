@@ -59,9 +59,9 @@ For example, with VS Code:
 
 The website follows Alimentae's visual identity:
 
-- 🔵 Blue (#040f6e)
-- 🟡 Yellow (#fad02c)
-- ⚪ White (#ffffff)
+- Blue (#040f6e)
+- Yellow (#fad02c)
+- White (#ffffff)
 
 Typography:
 
