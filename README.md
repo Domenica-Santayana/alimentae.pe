@@ -4,9 +4,7 @@ Alimentae is an interactive and responsive demo website for my food rescue initi
 
 ## About the Project
 
-Alimentae was created to address a clear issue:
-
-> There's an excess of edible food which is discarded every day while thousands of people struggle with hunger.
+Alimentae was created to address a clear issue: There's an excess of edible food which is discarded every day while thousands of people struggle with hunger.
 
 In this way, through partnerships with local bakeries, markets, and restaurants, Alimentae rescues surplus food before it becomes waste and redistributes it to community kitchens, shelters, and families in need.
 
