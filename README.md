@@ -16,7 +16,7 @@ So, this website is the public face of our initiative, presenting its story, imp
 - Interactive design regardless of the device: for desktop, tablet, and phoness
 - Smooth scrolling
 - Nav bar and Nav menu
-- index.html (for full conceptualization) and somos.html (introduction to the team)
+- index.html (for full conceptualization), somos.html (introduction to the team) and accion.html (merch products)
 - Mission, Vision, and Values sections
 - Call to action section with bottons that redirect you to links
 
@@ -35,6 +35,13 @@ somos.html
 - mision and vision
 - quote
 - bottons (call to action and going back to index)
+
+accion.html
+- introduction
+- 3 products
+- gallery (products seen by the front, the back and in use)
+- why will you like it (what makes our merch special)
+- cta
 
 
 ## Coding language
